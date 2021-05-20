@@ -7,12 +7,17 @@ import 'package:flutter_application/routes.dart';
 import 'package:flutter_application/util/shared_pref_storage.dart';
 import 'package:provider/provider.dart';
 
-// import 'screen/home_screen.dart';
+// 1) Реалізувати можливість зміни теми (темна/світла) за допомогою Shared Preferences
+// 2) Продемонструвати використання асинхронних функцій
+//   2.1) Обробка Future результату за допомогою .then()
+//   2.2) Обробка Future результату за допомогою ключового слова await
+// 3) Виконання http запитів на віддалений ресурс
+//   3.1) Написати функцію parseJson() для обробки отриманого JSON
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   PrefStorage.getDarkModePref()
-      .then((darkMode) => runApp(MyApp(darkMode: true)));
+      .then((darkMode) => runApp(MyApp(darkMode: darkMode)));
 }
 
 class MyApp extends StatelessWidget {
